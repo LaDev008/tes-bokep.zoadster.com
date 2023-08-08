@@ -45,7 +45,7 @@ Route::resource('categories', CategoryController::class)->except('show');
 Route::resource('tags', TagController::class)->except('show');
 Route::resource('videos', VideoController::class)->except('show');
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'no.member'])->group(function () {
   Route::get('/', function () {
     return view('admin.dashboard');
   })->name('dashboard');
@@ -55,14 +55,14 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     'countries' => CountryController::class,
     'users' => UserController::class,
   ]);
+
+  Route::get('/test', function () {
+    $format = "%s";
+    $number = "0234";
+    dd(sprintf($format, $number));
+  });
 });
 
-Route::get('/test', function () {
-  $format = "%s";
-  $number = "0234";
-
-  dd(sprintf($format, $number));
-});
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticating'])->middleware('guest');

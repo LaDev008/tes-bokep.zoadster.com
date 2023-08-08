@@ -92,6 +92,12 @@
     </header>
     <main class="container-fluid container-lg">
         @yield('content')
+
+        <div class="separator my-4"></div>
+        <h2 >BokepCity69 - Situs Bokep Terlengkap</h2>
+        <p class="text-white">BokepCity69 Situs streaming bokep indonesia terlengkap dengan kategori jav, teen, step
+            sister, step mom dan
+            lain-lain.</p>
     </main>
     <div class="separator"></div>
     <footer class="d-flex col-12 justify-content-center">
@@ -126,6 +132,7 @@
                 </li>
             </ul>
         </div>
+
         @yield('footer')
     </footer>
     <!-- Bootstrap JavaScript Libraries -->

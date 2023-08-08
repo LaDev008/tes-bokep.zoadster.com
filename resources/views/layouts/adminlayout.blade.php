@@ -23,7 +23,9 @@
                 <x-nav-item routeName="categories.index" name="KATEGORI VIDEO" />
                 <x-nav-item routeName="countries.index" name="KATEGORI NEGARA" />
                 <x-nav-item routeName="tags.index" name="TAG VIDEO" />
-                <x-nav-item routeName="users.index" name="USER LIST" />
+                @if (Auth::user()->role_id < 4)
+                    <x-nav-item routeName="users.index" name="USER LIST" />
+                @endif
                 <x-nav-item routeName="logout" name="LOGOUT" />
             </header>
         </aside>
@@ -32,6 +34,7 @@
         </main>
     </div>
     <footer>
+
         <!-- place footer here -->
     </footer>
 
