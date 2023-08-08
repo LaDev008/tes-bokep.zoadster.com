@@ -38,10 +38,12 @@ Route::get('/video', function () {
   return view('guest.video.list', compact('videos'));
 })->name('videos.list');
 
+Route::get('/video/{slug}', [VideoController::class, 'show'])->name('videos.show');
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('/tag/{slug}', [TagController::class, 'show'])->name('tag.show');
-  Route::resource('categories', CategoryController::class)->except('show');
-  Route::resource('tags', TagController::class)->except('show');
+Route::resource('categories', CategoryController::class)->except('show');
+Route::resource('tags', TagController::class)->except('show');
+Route::resource('videos', VideoController::class)->except('show');
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
   Route::get('/', function () {
@@ -50,7 +52,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
 
   Route::resources([
-    'videos' => VideoController::class,
     'countries' => CountryController::class,
     'users' => UserController::class,
   ]);

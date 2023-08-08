@@ -67,8 +67,6 @@ class Edit extends Component
     }
 
     $this->item->title = $this->title;
-    $this->item->link = $video_path;
-    $this->item->thumbnail = $image_path;
     $this->item->slug = str_replace(" ", "-", $this->title);
     $this->item->category_id = $this->category_id;
     $this->item->country_id = $this->country_id;
@@ -95,7 +93,7 @@ class Edit extends Component
     $this->item->tags()->sync($this->tag_items);
 
     Session::flash('status', 'success');
-    Session::flash('message', 'Berhasil Mengupdate Video' . $this->item->title);
+    Session::flash('message', 'Berhasil Mengupdate Video ' . $this->item->title);
 
     return redirect()->route('videos.index');
   }

@@ -120,7 +120,7 @@ class VideoController extends Controller
     $video->save();
 
     Session::flash('status', 'success');
-    Session::flash('message', 'Berhasil Mengupdate Video');
+    Session::flash('message', 'Berhasil Mengupdate Video ');
 
     return redirect()->route('videos.index');
   }

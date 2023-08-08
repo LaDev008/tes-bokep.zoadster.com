@@ -17,6 +17,16 @@
             </div>
         </div>
 
+        <div class="row g-0 d-flex flex-wrap">
+            <h3>{{ $video->category->name }}</h3>
+            <div class="separator"></div>
+            @foreach ($video->category->videos as $item)
+                <div class="col-2 p-1">
+                    <livewire:thumbnail-display :video="$item" />
+                </div>
+            @endforeach
+        </div>
+
         <div class="row g-0 d-flex gap-lg-0 gap-2">
             <img src="https://via.placeholder.com/360x80" alt="" class=" col-lg-6 px-lg-1">
             <img src="https://via.placeholder.com/360x90" alt="" class=" col-lg-6 px-lg-1">
