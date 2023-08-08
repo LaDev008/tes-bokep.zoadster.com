@@ -7,6 +7,17 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
+
+        <div class="row g-0">
+            <div class="col-12 d-flex flex-wrap">
+                @foreach ($videos as $item)
+                    <div class="col-12 col-lg-2 p-1">
+                        <livewire:thumbnail-display :video="$item">
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
         @foreach ($categories as $item)
             @if ($item->videos->count() > 0)
                 <livewire:guest.categories-display :item="$item">

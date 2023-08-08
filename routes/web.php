@@ -33,7 +33,7 @@ Route::get('/', function () {
 });
 
 Route::get('/video', function () {
-  $videos = Video::with('category', 'tags')->get();
+  $videos = Video::with('category', 'tags')->orderBy('views')->orderBy('name')->get();
 
   return view('guest.video.list', compact('videos'));
 })->name('videos.list');
